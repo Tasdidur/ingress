@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hi-dp
+spec:
+  selector:
+    matchLabels:
+      finder: hi
+  replicas: 2
+  template:
+    metadata: 
+      name: hi-pd
+      labels:
+        finder: hi
+    spec:
+      containers: 
+      - name: hi-container
+        image: tasdidur/mini-server-2

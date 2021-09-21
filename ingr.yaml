@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: hi-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: tasdid.com
+    http:
+      paths:
+      - path: /
+        backend: 
+          serviceName: hi-svc
+          servicePort: 8000
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: tasdid2.com
+    http:
+      paths:
+      - path: /hi
+        backend: 
+          serviceName: hel-svc
+          servicePort: 8001
+      - path: /hello
+        backend: 
+          serviceName: hel-svc
+          servicePort: 8001
+      - path: /bye
+        backend: 
+          serviceName: hel-svc
+          servicePort: 8001
+
+

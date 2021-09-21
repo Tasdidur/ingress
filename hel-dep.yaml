@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hel-dp
+spec:
+  selector:
+    matchLabels:
+      finder: hel
+  replicas: 2
+  template:
+    metadata: 
+      name: hel-pd
+      labels:
+        finder: hel
+    spec:
+      containers: 
+      - name: hel-container
+        image: tasdidur/test-ingress

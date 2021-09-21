@@ -1,0 +1,6 @@
+kind create cluster --config clust.yaml
+kubectl apply -f svc.yaml   // apply this command before applying the deployments
+kubectl apply -f hi-dep.yaml
+kubectl apply -f hel-dep.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+sudo nano /etc/hosts >>> 127.0.0.1  tasdid.com   127.0.0.1   tasdid2.com
